@@ -2,6 +2,8 @@
 Trying to answer following questions through some codebase examples
 * How to use React in its simplest form?
 * Why use React?
+* What's virtual DOM?
+* How React is different from Angularjs in term of how they updates the view?
 * ES5 or ES6 for React?
 * What's flux and how to incorporate with React?
 * Redux? Reflux? what's going on?
