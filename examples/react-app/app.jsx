@@ -1,29 +1,55 @@
-//using cs5
-var App = React.createClass({
-  render:function(){
+
+var MyRadio = React.createClass({
+  getInitialState: function() {
+   return {value: 'Hello!'};
+ },
+ otherValueChange: function(event) {
+    this.setState({value: event.target.value});
+  },
+  render: function() {
     return (
-          <div>
-            Hello world!!!
-            <Message message="Hello everyone!!"></Message>
-            <MyRadio/>
-          </div>
-        );
-      }
-});
+      <div>
+      <p className="h3">My Mood</p>
+      <p className="radio">
+        <label>
+            <input type="radio" value="Happy" name="myRadio"/>
+            Happy
+        </label>
+      </p>
 
-//using es6
-class Message extends React.Component {
-  render() {
-        return (
-        <div>
-        {true && (<Person name="Rupesh"/>)}
-         Here is my message:{this.props.message}
-        </div>
-      );
-    }
+      <p className="radio">
+            <label>
+              <input type="radio" value="Sad" name="myRadio" />
+              Sad
+            </label>
+      </p>
+
+      <p className="radio">
+          <label>
+            <input type="radio" value="OK" name="myRadio"/>
+            OK
+          </label>
+      </p>
+
+        <p className = "radio" >
+        <label>
+            <input type="radio" value="Contained" name="myRadio"/>
+            Contained
+        </label>
+        </p>
+        <p className="form-group radio">
+            <label>
+              <input type="radio" value="Other" name="myRadio" />
+              Other
+            </label>
+            <label className="form-inline">
+              Specify:<input type="text" name="myRadio" value={this.state.value} onChange={this.otherValueChange} / >
+            </label>
+        </p>
+        <p>Other value you just specified: {this.state.value}</p>
+    </div>
+
+);
 }
-
-//using es6 arrow syntax;
-const Person = (props) => (<div>Hello My name is {props.name} </div>);
-
+});
 ReactDOM.render(<MyRadio />,document.getElementById('app'));
