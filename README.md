@@ -19,8 +19,25 @@ This demonstrates, how you can change the value in the input and gets the update
 #####[Not using jsx in client side]()
 This demonstrates how to transcompile your jsx into js and browser doesn't deal with jsx at runtime.
 
-#####Transcompiling from commandline
-In production, You may better want to just load transcompiled js and handle all transcompiling in server. Simple way without using any build system is just using babel-cli....
+#####Transcompiling from commandline (offline Transformation)
+In production, You may better want to just load transcompiled js and handle all transcompiling in server. Simple way without using any build system is just using babel-cli.
+ * you have jsx file to transform
+ ```js
+ //App component: app.jsx
+ var App = React.createClass({
+  render:function(){
+    return (<h1>Hello world!!</h2>)
+  }
+ });
+ ```
+ * you have installed  _react_, _react-dom_, _babel-preset-react_ and _babel-cli_    
+ ```npm install react react-dom babel-preset-react babel-cli```
+ * Run command:
+ ```babel --presets react app.jsx```
+
+This should transform the jsx into javascript and show you the result on console. If you want to dump the trasformed file into folder or into file, please check out the link:[babel-cli](https://babeljs.io/docs/usage/cli/)
+
+
 
 
 # react-guide
