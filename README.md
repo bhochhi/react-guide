@@ -1,3 +1,12 @@
+###Demo:
+
+#####[Simple React]()
+This is to show how simply you can extends the html using just react. The directives are written in JSX and transformed to js in browser using babel.
+
+#####[React rendering view when data changes]()
+
+
+
 # react-guide
 
 https://blog.risingstack.com/the-react-way-getting-started-tutorial/
