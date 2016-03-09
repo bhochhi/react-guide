@@ -19,6 +19,9 @@ This demonstrates, how you can change the value in the input and gets the update
 #####[Not using jsx in client side]()
 This demonstrates how to transcompile your jsx into js and browser doesn't deal with jsx at runtime.
 
+#####Transcompiling from commandline
+In production, You may better want to just load transcompiled js and handle all transcompiling in server. Simple way without using any build system is just using babel-cli....
+
 
 # react-guide
 
