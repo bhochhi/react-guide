@@ -1,3 +1,22 @@
+###Demo
+Trying to answer following questions through some codebase examples
+* How to use React in its simplest form?
+* Why use React?
+* What's virtual DOM?
+* How React is different from Angularjs in term of how they updates the view?
+* ES5 or ES6 for React?
+* What's flux and how to incorporate with React?
+* Redux? Reflux? what's going on?
+* Best Practices while building applications using React+XXX
+
+
+#####[Simple React](https://github.com/bhochhi/react-guide/tree/master/examples/simple-react)
+This is to show how simply you can extends the html using just react. The directives are written in JSX and transformed to js in browser using babel.
+
+#####[React rendering view when data changes]()
+
+
+
 # react-guide
 
 https://blog.risingstack.com/the-react-way-getting-started-tutorial/
