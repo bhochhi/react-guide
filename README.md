@@ -10,7 +10,7 @@ Trying to answer following questions through some codebase examples
 * Best Practices while building applications using React+XXX
 
 
-#####[Simple React]()
+#####[Simple React](https://github.com/bhochhi/react-guide/tree/master/examples/simple-react)
 This is to show how simply you can extends the html using just react. The directives are written in JSX and transformed to js in browser using babel.
 
 #####[React rendering view when data changes]()
