@@ -1,4 +1,3 @@
-var x = 200;
 var MyRadio = React.createClass({
   getInitialState: function() {
     return {value: 'Hello!'};
