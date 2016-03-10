@@ -40,8 +40,8 @@ In production, You may better want to just load transcompiled js and handle all 
 This should transform the jsx into javascript and show you the result on console. If you want to dump the trasformed file into folder or into file, please check out the link:[babel-cli](https://babeljs.io/docs/usage/cli/)
 
 
-######[react with webpack]() 
-
+######[react with webpack](https://github.com/bhochhi/react-guide/tree/v-react-with-webpack) 
+Here you see the same simple app but now the transformation is taking place in serverside and webpack is integrated to build the distribution.
 
 [ref](https://robots.thoughtbot.com/setting-up-webpack-for-react-and-hot-module-replacement)
 [ref](http://survivejs.com/webpack/introduction/)
