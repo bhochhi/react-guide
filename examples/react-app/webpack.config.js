@@ -1,7 +1,8 @@
 module.exports = {
   context: __dirname + "/public",
   entry: {
-    javascript: "./app.js",
+
+    javascript: ["./core/core.js","./app.js"],
     html: "./index.html"
   },
 
