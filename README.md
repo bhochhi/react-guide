@@ -16,7 +16,7 @@ This is to show how simply you can extends the html using just react. The direct
 #####[React rendering view when data changes](https://github.com/bhochhi/react-guide/tree/v-input-update)
 This demonstrates, how you can change the value in the input and gets the updated data printed in the screen(re-render), just like how ng-model in angularjs does. The concept is very similar to classic HTML where you bind the event listener in your input tag, like onChange event, which triggle and execute the function that updates the value. In vanilla js, you find the dom and update the text, but in React the value is bind to state of the component, so when state value changes, it re-renders the view.
 
-#####[Not using jsx in client side]()
+#####[Not using jsx in client side](https://github.com/bhochhi/react-guide/tree/v-offline-transformation)
 This demonstrates how to transcompile your jsx into js and browser doesn't deal with jsx at runtime.
 
 #####Transcompiling from commandline (offline Transformation)
@@ -40,9 +40,9 @@ In production, You may better want to just load transcompiled js and handle all 
 This should transform the jsx into javascript and show you the result on console. If you want to dump the trasformed file into folder or into file, please check out the link:[babel-cli](https://babeljs.io/docs/usage/cli/)
 
 
+######[react with webpack]()
 
-
-# react-guide
+######[
 
 https://blog.risingstack.com/the-react-way-getting-started-tutorial/
 http://victorsavkin.com/post/99998937651/building-angular-apps-using-flux-architecture
