@@ -41,6 +41,9 @@ This should transform the jsx into javascript and show you the result on console
 
 
 ######[react with webpack]() 
+
+
+[ref](https://robots.thoughtbot.com/setting-up-webpack-for-react-and-hot-module-replacement)
 [ref](http://survivejs.com/webpack/introduction/)
 
 ######[
