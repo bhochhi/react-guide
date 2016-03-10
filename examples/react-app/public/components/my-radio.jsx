@@ -1,4 +1,5 @@
-var MyRadio = React.createClass({
+var React = require('react');
+var MyRadio=React.createClass({
   getInitialState: function() {
     return {value: 'Hello!'};
   },
@@ -38,14 +39,16 @@ var MyRadio = React.createClass({
         </p>
         <p className="form-group radio">
           <label>
-            <input type="radio" value="Other" name="myRadio"/>
+            <input type="radio" name="myRadio"/>
             Other
           </label>
           <label className="form-inline">
-            Specify:<input type="text" name="myRadio"/>
+            Specify:<input type="text" name="myRadio" value={this.state.value} onChange={this.otherValueChange}/>
           </label>
         </p>
+        {this.state.value && <p>You specified: {this.state.value}</p>}
       </div>
     );
   }
 });
+module.exports = MyRadio;
