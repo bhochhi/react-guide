@@ -41,10 +41,7 @@ This should transform the jsx into javascript and show you the result on console
 
 
 ######[react with webpack](https://github.com/bhochhi/react-guide/tree/v-react-with-webpack) 
-Here you see the same simple app but now the transformation is taking place in serverside and webpack is integrated to build the distribution.
-
-[ref](https://robots.thoughtbot.com/setting-up-webpack-for-react-and-hot-module-replacement)
-[ref](http://survivejs.com/webpack/introduction/)
+Here you see the same simple app but now the transformation is taking place in serverside and webpack is integrated to build the distribution. [ref1](https://robots.thoughtbot.com/setting-up-webpack-for-react-and-hot-module-replacement) [ref2](http://survivejs.com/webpack/introduction/)
 
 ######[react component render maps to array of data](https://github.com/bhochhi/react-guide/tree/v-render-mapping-array)
 This shows how you can render the view with array of properties. Please understand [multiple components](http://facebook.github.io/react/docs/multiple-components.html#dynamic-children) when render view using map. Else you may encounter a warning that will say:_Each child in an array or iterator should have a unique "key" prop. Check the render method of `exports`_
