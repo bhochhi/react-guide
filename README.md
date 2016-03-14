@@ -1,6 +1,6 @@
 ###Demo
 Trying to answer following questions through some codebase examples
-* How to use React in its simplest form?
+* How to use Raw React?
 * Why use React?
 * What's virtual DOM?
 * How React is different from Angularjs in term of how they updates the view?
