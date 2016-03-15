@@ -44,7 +44,9 @@ This should transform the jsx into javascript and show you the result on console
 Here you see the same simple app but now the transformation is taking place in serverside and webpack is integrated to build the distribution. [ref1](https://robots.thoughtbot.com/setting-up-webpack-for-react-and-hot-module-replacement) [ref2](http://survivejs.com/webpack/introduction/)
 
 ######[react component render maps to array of data](https://github.com/bhochhi/react-guide/tree/v-render-mapping-array)
-This shows how you can render the view with array of properties. Please understand [multiple components](http://facebook.github.io/react/docs/multiple-components.html#dynamic-children) when render view using map. Else you may encounter a warning that will say:_Each child in an array or iterator should have a unique "key" prop. Check the render method of `exports`_
+This shows how you can render the view with array of properties. Please understand [dynamic children](http://facebook.github.io/react/docs/multiple-components.html#dynamic-children) when render view using map. Else you may encounter a warning that will say:_Each child in an array or iterator should have a unique "key" prop. Check the render method of `exports`_ Also mind when registering any events with childrens, as you may have to bind parent _this_ into your callback function.
+
+
 
 https://blog.risingstack.com/the-react-way-getting-started-tutorial/
 http://victorsavkin.com/post/99998937651/building-angular-apps-using-flux-architecture
