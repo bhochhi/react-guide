@@ -7,8 +7,9 @@ Trying to answer following questions through some codebase examples
 * ES5 or ES6 for React?
 * What's flux and how to incorporate with React?
 * Redux? Reflux? what's going on?
-* Best Practices while building applications using React+XXX
+* Best Practices while bu
 
+Following example projects are built progressively as we move further down.
 
 #####[Simple React](https://github.com/bhochhi/react-guide/tree/master/examples/simple-react)
 This is to show how simply you can extends the html using just react. The directives are written in JSX and transformed to js in browser using babel.
@@ -48,6 +49,11 @@ This shows how you can render the view with array of properties. Please understa
 
 ######[react with webpack and gulp]()
 This is same project as above but with gulp build system integrated. To build and host the app, just run ```npm install``` then ```gulp```
+
+######[react with flux]()
+
+######[react with redux]()
+
 
 https://blog.risingstack.com/the-react-way-getting-started-tutorial/
 http://victorsavkin.com/post/99998937651/building-angular-apps-using-flux-architecture
