@@ -10,11 +10,11 @@ var MyForm=React.createClass({
         }, {
           value: "Sad",
           name: "myRadio",
-          label: "Sad"
+          label: "Sadies"
         }, {
           value: "OK",
           name: "myRadio",
-          label: "OK"
+          label: "OKieeeeeeeeeeeeeeeeeeeeeeeeee"
         }, {
           value: "Contained",
           name: "myRadio",

@@ -8,7 +8,7 @@ module.exports = {
     path: __dirname + "/dist",
     filename: "[name].js"
   },
-  modulesDirectories: ['./node_modules'],
+  // watch:true,
   module: {
     loaders: [{
       test: /\.jsx?$/,
