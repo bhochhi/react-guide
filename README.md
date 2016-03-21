@@ -7,7 +7,9 @@ Trying to answer following questions through some codebase examples
 * ES5 or ES6 for React?
 * What's flux and how to incorporate with React?
 * Redux? Reflux? what's going on?
-* Best Practices while bu
+* Best Practices?
+* How to TDD with react?
+* 
 
 Following example projects are built progressively as we move further down.
 
@@ -53,6 +55,8 @@ This is same project as above but with gulp build system integrated. To build an
 ######[react with flux]()
 
 ######[react with redux]()
+
+#####[react with TDD]()
 
 
 https://blog.risingstack.com/the-react-way-getting-started-tutorial/
