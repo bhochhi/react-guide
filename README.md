@@ -24,6 +24,8 @@ This is same project as above but with gulp build system integrated. To build an
 
 ######[react with flux]()
 
+#####[React Way of Thinking]()
+
 ######[react with redux]()
 
 #####[react with TDD](http://teropa.info/blog/2015/09/10/full-stack-redux-tutorial.html)
