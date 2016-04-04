@@ -22,9 +22,14 @@ This shows how you can render the view with array of properties. Please understa
 ######[react with webpack and gulp]()
 This is same project as above but with gulp build system integrated. To build and host the app, just run ```npm install``` then ```gulp```
 
-######[react with flux]()
 
 #####[React Way of Thinking]()
+I should have covered this earlier when working with just raw React. My example reflects the why Pete Hunt suggested how one should think of react in his [docs](https://facebook.github.io/react/docs/thinking-in-react.html). Following are the steps to keep in mind while working with react.
+
+1. __Break the UI into component hierarchy__ When you see UI mocks, you should be able to break down the UI into various components representing the hierarchy. This makes more sense as underlying structure, which is DOM itself is represented by tree structure. 
+
+######[react with flux]()
+
 
 ######[react with redux]()
 
