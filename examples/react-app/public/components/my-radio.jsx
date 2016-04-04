@@ -3,11 +3,9 @@ module.exports = React.createClass({
     return {otherChecked: false};
   },
   otherCheckedHandler: function(event) {
-    console.log('other: ',event.target.checked);
     this.setState({otherChecked: event.target.checked})
   },
   radioHandler: function(event){
-    console.log('Non other: ',event.target.checked);
     this.setState({otherChecked:!event.target.checked})
   },
   render: function() {
