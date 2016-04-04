@@ -1,43 +1,14 @@
 module.exports = React.createClass({
-  getInitialState: function() {
-    return {otherChecked: false};
-  },
-  otherCheckedHandler: function(event) {
-    this.setState({otherChecked: event.target.checked})
-  },
-  radioHandler: function(event){
-    this.setState({otherChecked:!event.target.checked})
-  },
   render: function() {
-    var that = this;
+    var value = this.props.data.value;
+    var name = this.props.data.name;
+    var label = this.props.data.label;
     return (
-      <div>
-        { this.props.options.map(function(radioData) {
-          return (
-            <p className="radio" key={radioData.label}>
-              <label>
-                <input type="radio" value={radioData.value} name={radioData.name} onChange={that.radioHandler} />
-                {radioData.label}
-              </label>
-            </p>
-          );
-        })
-}
-        {this.props.other && (
-          <p className="radio">
-            <label>
-              <input type="radio" value="other" name="myRadio" onChange={this.otherCheckedHandler}/>
-              Other
-            </label>
-            {this.state.otherChecked && <label className="form-inline">
-              Specify:<input ref="Specify" type="text" name="myRadio" />
-            </label>
-}
-          </p>
-        )
-}
+      <div className="my-radio">
+        <label>
+          <input type="radio" value={value} name={name} /> {label}
+        </label>
       </div>
     )
-
   }
 });
