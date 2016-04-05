@@ -6,7 +6,9 @@ module.exports = React.createClass({
   },
 
   onRadioSelected: function(e) {
-      this.setState({otherSelected:e.target.value === 'Other'? e.target.checked:! e.target.checked});
+      // this.setState({otherSelected:e.target.value === 'Other'? e.target.checked:! e.target.checked});
+       this.props.options[0].label="Hello";
+      // console.log(  this.props.options[0]);
   },
   render: function() {
     var that = this;
