@@ -1,4 +1,5 @@
 .my-form {
+  margin-top: 20px;
   border: 1px solid black;
   padding: 3px;
 }
@@ -13,4 +14,7 @@
 .my-other-radio {
   border: 1px dotted blue;
   padding: 3px;
+}
+.other-specify{
+  padding-left: 20px;
 }

@@ -1,4 +1,8 @@
 module.exports = React.createClass({
+  propTypes:{
+    value:React.PropTypes.string,
+    name:React.PropTypes.string
+  },
   render: function() {
     var value = this.props.data.value;
     var name = this.props.data.name;
@@ -6,7 +10,7 @@ module.exports = React.createClass({
     return (
       <div className="my-radio">
         <label>
-          <input type="radio" value={value} name={name} /> {label}
+          <input type="radio" onChange={this.props.onRadioSelected} value={value} name={name} /> {label}
         </label>
       </div>
     )
