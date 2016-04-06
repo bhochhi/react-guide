@@ -1,16 +1,14 @@
 module.exports = {
   context: __dirname + "/public",
   entry: {
-
-    javascript: ["./core/core.js","./app.js"],
-    html: "./index.html"
+    core: "./core/core.js",
+    app: "./app.js"
   },
-
   output: {
-    filename: "app.js",
     path: __dirname + "/dist",
+    filename: "[name].js"
   },
-  modulesDirectories: ['./node_modules'],
+  // watch:true,
   module: {
     loaders: [{
       test: /\.jsx?$/,
@@ -22,6 +20,9 @@ module.exports = {
     }, {
       test: /\.html$/,
       loader: "file?name=[name].[ext]",
-    },{ test: /\.css$/, loader: "css" },]
+    }, {
+      test: /\.css$/,
+      loader: "style-loader!css-loader"
+    }]
   }
 };
