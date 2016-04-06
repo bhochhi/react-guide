@@ -24,7 +24,7 @@ This is same project as above but with gulp build system integrated. To build an
 
 
 #####[React Way of Thinking]()
-I should have covered this earlier when working with just raw React. My example reflects the way Pete Hunt suggested how one should think of react in his [docs](https://facebook.github.io/react/docs/thinking-in-react.html). Following are the steps to keep in mind while working with react.
+This should be one of the first to mention and start with while building react components and also best explained already by  Pete Hunt his [docs](https://facebook.github.io/react/docs/thinking-in-react.html). My explanation and example are just reiteration of same thinking. Following are the steps to keep in mind while working with react.
 
 1. __Break the UI into component hierarchy__ When you see UI mocks, you should be able to break down the UI into various components representing the hierarchy. This makes more sense as underlying structure, which is DOM itself is represented by tree structure. More you practice, better you would be in breaking the UI into various components and sub components. Some techniques: follow _Single Responsibility Principle_ so that component will be doing only one thing. Next, check your data model, a component should be responsible to represent certain part of the model.
 2. __Build Static Version in React__ This will be the first time you write some code. Create all those components finalized from step 1 and have it render your static data model. Use props to pass data from parent to child. Build components either top-down or bottom-up approach. Note that the flow of data is one directional: You pass data model from parent to child components and child components renders to represent the view. However, this is true only for the first time. To make view interactive and update/render when data changes, the data being passed are categorized into two types: props and states. If a view changes the props value, component will be update itself however when state value changes the view gets render automatically. So now you know if you want to render view, you need to change the value of state data. Next is how to Identify the states.
@@ -38,11 +38,12 @@ I should have covered this earlier when working with just raw React. My example 
   3. Either this common component or another in higher up in the hierarchy should own the state.
   4. If you can't find a component where it makes sense to own the state, simply create a new component for holding the state and add it somewhere in the upper hierarchy as common owner component.
 Hence, the owner component should have getInitialState method to return the state object, the initial state of the application. Then pass this state object to child components  as a prop and use this prop to render the view.
-5. __Add inverse data flow__
+5. __Add inverse data flow__  Remember the meaning of one-directional data flow: data or state should be changed only by their owner component and the child components should be simply responsible to let the owner know about user interaction and actions so that owner could update the data respective components could re-render to update the view. Basically this is done by creating callback function in owner component that updates the state and data. Such function will be passed to child components who will trigger on user interaction and consequently causing all the components to re-render if the state has been passed those components as a props.
+
+######[react with flux]()
 
 #####[Event Handing and Synthetic Events]()
 
-######[react with flux]()
 
 
 ######[react with redux]()

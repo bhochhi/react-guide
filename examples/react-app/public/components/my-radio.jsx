@@ -3,6 +3,9 @@ module.exports = React.createClass({
     value:React.PropTypes.string,
     name:React.PropTypes.string
   },
+  changeHandler :function(e){
+    this.props.onRadioSelected(!e.target.checked);
+  },
   render: function() {
     var value = this.props.data.value;
     var name = this.props.data.name;
@@ -10,7 +13,7 @@ module.exports = React.createClass({
     return (
       <div className="my-radio">
         <label>
-          <input type="radio" onChange={this.props.onRadioSelected} value={value} name={name} /> {label}
+          <input type="radio" onChange={this.changeHandler} value={value} name={name} /> {label}
         </label>
       </div>
     )

@@ -5,16 +5,19 @@ module.exports = React.createClass({
     return {otherSelected: false};
   },
 
-  onRadioSelected: function(e) {
-      this.setState({otherSelected:e.target.value === 'Other'? e.target.checked:! e.target.checked});
+  onRadioSelected: function(otherChecked) {
+    if(this.state.otherSelected===otherChecked)
+    {
+      return;
+    }
+    this.setState({otherSelected:otherChecked});
   },
   render: function() {
-    var that = this;
     var radios = this.props.options.map(function(radio) {
       return (
-        <MyRadio data={radio} key={radio.label} onRadioSelected={that.onRadioSelected}></MyRadio>
+        <MyRadio data={radio} key={radio.label} onRadioSelected={this.onRadioSelected}></MyRadio>
       )
-    });
+    }.bind(this));
 
     return (
       <div className='my-radio-group'>
