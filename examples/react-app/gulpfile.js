@@ -19,7 +19,7 @@ gulp.task('clean',function(){
 gulp.task('webpack',['html'], function(){
   gulp.src('./public')
               .pipe(webpack(webpackConfig))
-              .pipe(uglify())
+              // .pipe(uglify())
               .pipe(gulp.dest('./dist'));
 });
 

@@ -24,6 +24,7 @@
     "lodash": "^4.6.1",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
+    "style-loader": "^0.13.1",
     "webpack": "^1.12.14"
   },
   "dependencies": {}
