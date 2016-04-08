@@ -57,6 +57,7 @@ https://facebook.github.io/flux/docs/todo-list.html#content
 
 #####[isomorphic react]()
 
+#####[react with Immutable]()
 ######[react with es6]()
 
 
