@@ -10,6 +10,8 @@ Trying to answer following questions through some codebase examples
 * Best Practices?
 * How to TDD with react?
 
+
+
 Following example projects are built progressively as we move further down.
 
 ######[react with webpack](https://github.com/bhochhi/react-guide/tree/v-react-with-webpack)
@@ -46,6 +48,10 @@ Hence, the owner component should have getInitialState method to return the stat
 
 
 ######[react with redux]()
+
+######[react with es6]()
+
+######[react lifecycle]()
 
 #####[react with TDD](http://teropa.info/blog/2015/09/10/full-stack-redux-tutorial.html)
 
