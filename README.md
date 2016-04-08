@@ -44,6 +44,11 @@ Hence, the owner component should have getInitialState method to return the stat
 
 ######[react with flux]()
 
+https://facebook.github.io/flux/docs/overview.html
+https://github.com/facebook/flux/tree/master/examples/flux-todomvc
+https://facebook.github.io/flux/docs/todo-list.html#content
+
+
 #####[Event Handing and Synthetic Events]()
 
 #####[react with routing]()
@@ -55,7 +60,7 @@ Hence, the owner component should have getInitialState method to return the stat
 ######[react lifecycle]()
 
 #####[react with TDD](http://teropa.info/blog/2015/09/10/full-stack-redux-tutorial.html)
-
+https://facebook.github.io/jest/docs/tutorial.html#content
 
 https://blog.risingstack.com/the-react-way-getting-started-tutorial/
 http://victorsavkin.com/post/99998937651/building-angular-apps-using-flux-architecture
