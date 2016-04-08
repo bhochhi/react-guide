@@ -8,6 +8,7 @@ Trying to answer following questions through some codebase examples
 * What's flux and how to incorporate with React?
 * Redux? Reflux? what's going on?
 * Best Practices?
+* How react handles routing?
 * How to TDD with react?
 
 
@@ -45,7 +46,7 @@ Hence, the owner component should have getInitialState method to return the stat
 
 #####[Event Handing and Synthetic Events]()
 
-
+#####[react with routing]()
 
 ######[react with redux]()
 
