@@ -46,13 +46,13 @@ Hence, the owner component should have getInitialState method to return the stat
   1. Flux is design pattern that establish unidirectional data flow in the application.
   2. When a user interact with views, an action is propagated to __Dispatcher__ via __Action Creators__. The __Dispatcher__ then invokes all the callbacks that __Stores__ have registered with it for such action. This is the how __Stores__ gets the data payload contained in the actions. The __Stores__ then emit a "change" event. All the __Views__ listening for such change event retrieve the data from __Stores__ and call _render()_ method via _setState()_ or _forceUpdate()_ to update themselves and their children.
   3. As you can see, Flux applications have 4 major parts: Dispatcher, Store, Views and Action Creators.
-  4. Dispatcher is a singleton and just a registry of actions.
+  4. Dispatcher is a singleton and just a registry of actions registered by Stores. When Dispatcher is invoked in an action creator method, all callbacks are called....
   5.
 
 
 
+  https://github.com/facebook/flux/tree/master/examples/flux-todomvc
 https://facebook.github.io/flux/docs/overview.html
-https://github.com/facebook/flux/tree/master/examples/flux-todomvc
 https://facebook.github.io/flux/docs/todo-list.html#content
 
 
