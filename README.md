@@ -43,6 +43,13 @@ Hence, the owner component should have getInitialState method to return the stat
 5. __Add inverse data flow__  Remember the meaning of one-directional data flow: data or state should be changed only by their owner component and the child components should be simply responsible to let the owner know about user interaction and actions so that owner could update the data respective components could re-render to update the view. Basically this is done by creating callback function in owner component that updates the state and data. Such function will be passed to child components who will trigger on user interaction and consequently causing all the components to re-render if the state has been passed those components as a props.
 
 ######[react with flux]()
+  1. Flux is design pattern that establish unidirectional data flow in the application.
+  2. When a user interact with views, an action is propagated to __Dispatcher__ via __Action Creators__. The __Dispatcher__ then invokes all the callbacks that __Stores__ have registered with it for such action. This is the how __Stores__ gets the data payload contained in the actions. The __Stores__ then emit a "change" event. All the __Views__ listening for such change event retrieve the data from __Stores__ and call _render()_ method via _setState()_ or _forceUpdate()_ to update themselves and their children.
+  3. As you can see, Flux applications have 4 major parts: Dispatcher, Store, Views and Action Creators.
+  4. Dispatcher is a singleton and just a registry of actions.
+  5.
+
+
 
 https://facebook.github.io/flux/docs/overview.html
 https://github.com/facebook/flux/tree/master/examples/flux-todomvc
