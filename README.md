@@ -33,7 +33,7 @@ This should be one of the first to mention and start with while building react c
 3. __Identify the minimal representation of UI state__ So what you learned so far from step 2 is only state change triggers re-render of your view. Some tips for Identifying what data make just props and what make states: Keep the states to minimal set, think of all the pieces of data in the application. And ask these three questions to qualify data for state:
   1. Is it passed in from a parent via props? If so, it probably isn't state.
   2. Does it change over time? If not, it probably isn't state.
-  3. Can you compute it based on any other states or props in your component? if so, it isn't state.
+  3. Can you compute it based on any other states or props in your component? if so, it isn't state.  
 4. __Identify where the state should live__ Once we identify the states, next major step is Identifying where component should own these states. Following tips helps to find the owner of state:
   1. Identify all the components that renders something based on this state.
   2. Find common component of all components identified above up in hierarchy.
@@ -46,8 +46,10 @@ Hence, the owner component should have getInitialState method to return the stat
   1. Flux is design pattern that establish unidirectional data flow in the application.
   2. When a user interact with views, an action is propagated to __Dispatcher__ via __Action Creators__. The __Dispatcher__ then invokes all the callbacks that __Stores__ have registered with it for such action. This is the how __Stores__ gets the data payload contained in the actions. The __Stores__ then emit a "change" event. All the __Views__ listening for such change event retrieve the data from __Stores__ and call _render()_ method via _setState()_ or _forceUpdate()_ to update themselves and their children.
   3. As you can see, Flux applications have 4 major parts: Dispatcher, Store, Views and Action Creators.
-  4. Dispatcher is a singleton and just a registry of actions registered by Stores. When Dispatcher is invoked in an action creator method, all callbacks are called....
-  5.
+  4. __Action Creator__
+  5. Dispatcher is a singleton and just a big registry of callbacks. It keeps a list of all of the stores that it needs to send actions to. When an action comes in from the action creator, it will pass to all registered stores regardless of action type. That's why you can all it dump. However if you need to set up dependencies between stores so that one gets updated before other, you can have Dispatcher manage this using waitFor() method.
+  6. f
+
 
 
 
