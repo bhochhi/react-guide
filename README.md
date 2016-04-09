@@ -8,21 +8,24 @@ Trying to answer following questions through some codebase examples
 * What's flux and how to incorporate with React?
 * Redux? Reflux? what's going on?
 * Best Practices?
+* How react handles routing?
 * How to TDD with react?
+
+
 
 Following example projects are built progressively as we move further down.
 
-######[react with webpack](https://github.com/bhochhi/react-guide/tree/v-react-with-webpack)
+##### [react with webpack](https://github.com/bhochhi/react-guide/tree/v-react-with-webpack)
 Here you see the same simple app but now the transformation is taking place in serverside and webpack is integrated to build the distribution. [ref1](https://robots.thoughtbot.com/setting-up-webpack-for-react-and-hot-module-replacement) [ref2](http://survivejs.com/webpack/introduction/)
 
-######[react component render maps to array of data](https://github.com/bhochhi/react-guide/tree/v-render-maps)
+##### [react component render maps to array of data](https://github.com/bhochhi/react-guide/tree/v-render-maps)
 This shows how you can render the view with array of properties. Please understand [dynamic children](http://facebook.github.io/react/docs/multiple-components.html#dynamic-children) when render view using map. Else you may encounter a warning that will say:_Each child in an array or iterator should have a unique "key" prop. Check the render method of `exports`_ Also mind when registering any events with childrens, as you may have to bind parent _this_ into your callback function.
 
-######[react with webpack and gulp]()
+##### [react with webpack and gulp]()
 This is same project as above but with gulp build system integrated. To build and host the app, just run ```npm install``` then ```gulp```
 
 
-#####[React Way of Thinking](https://github.com/bhochhi/react-guide/tree/v-thinking-in-react)
+##### [React Way of Thinking](https://github.com/bhochhi/react-guide/tree/v-thinking-in-react)
 This should be one of the first to mention and start with while building react components and also best explained already by  Pete Hunt his [docs](https://facebook.github.io/react/docs/thinking-in-react.html). My explanation and [example](https://github.com/bhochhi/react-guide/tree/v-thinking-in-react) are just reiteration of same thinking. Following are the steps to keep in mind while working with react.
 
 1. __Break the UI into component hierarchy__ When you see UI mocks, you should be able to break down the UI into various components representing the hierarchy. This makes more sense as underlying structure, which is DOM itself is represented by tree structure. More you practice, better you would be in breaking the UI into various components and sub components. Some techniques: follow _Single Responsibility Principle_ so that component will be doing only one thing. Next, check your data model, a component should be responsible to represent certain part of the model.
@@ -30,7 +33,7 @@ This should be one of the first to mention and start with while building react c
 3. __Identify the minimal representation of UI state__ So what you learned so far from step 2 is only state change triggers re-render of your view. Some tips for Identifying what data make just props and what make states: Keep the states to minimal set, think of all the pieces of data in the application. And ask these three questions to qualify data for state:
   1. Is it passed in from a parent via props? If so, it probably isn't state.
   2. Does it change over time? If not, it probably isn't state.
-  3. Can you compute it based on any other states or props in your component? if so, it isn't state.
+  3. Can you compute it based on any other states or props in your component? if so, it isn't state.  
 4. __Identify where the state should live__ Once we identify the states, next major step is Identifying where component should own these states. Following tips helps to find the owner of state:
   1. Identify all the components that renders something based on this state.
   2. Find common component of all components identified above up in hierarchy.
@@ -39,16 +42,41 @@ This should be one of the first to mention and start with while building react c
 Hence, the owner component should have getInitialState method to return the state object, the initial state of the application. Then pass this state object to child components  as a prop and use this prop to render the view.
 5. __Add inverse data flow__  Remember the meaning of one-directional data flow: data or state should be changed only by their owner component and the child components should be simply responsible to let the owner know about user interaction and actions so that owner could update the data respective components could re-render to update the view. Basically this is done by creating callback function in owner component that updates the state and data. Such function will be passed to child components who will trigger on user interaction and consequently causing all the components to re-render if the state has been passed those components as a props.
 
-######[react with flux]()
+##### [react with flux]()
+  1. Flux is design pattern that establish unidirectional data flow in the application.
+  2. When a user interact with views, an action is propagated to __Dispatcher__ via __Action Creators__. The __Dispatcher__ then invokes all the callbacks that __Stores__ have registered with it for such action. This is the how __Stores__ gets the data payload contained in the actions. The __Stores__ then emit a "change" event. All the __Views__ listening for such change event retrieve the data from __Stores__ and call _render()_ method via _setState()_ or _forceUpdate()_ to update themselves and their children.
+  3. As you can see, Flux applications have 4 major parts: Dispatcher, Store, Views and Action Creators.
+  4. __Action Creator__ It creates an actions with type and payload. Actions are triggered by views usually by user interaction and propagated to Dispatcher.
+  5. Dispatcher is a singleton and just a big registry of callbacks. It keeps a list of all of the stores that it needs to send actions to. When an action comes in from the action creator, it will pass to all registered stores regardless of action type. That's why you can all it dump. However if you need to set up dependencies between stores so that one gets updated before other, you can have Dispatcher manage this using waitFor() method.
+  6. __Store__
+
+
+
+
+
+
+  https://github.com/facebook/flux/tree/master/examples/flux-todomvc
+https://facebook.github.io/flux/docs/overview.html
+https://facebook.github.io/flux/docs/todo-list.html#content
+
 
 #####[Event Handing and Synthetic Events]()
 
-
+#####[react with routing]()
 
 ######[react with redux]()
 
-#####[react with TDD](http://teropa.info/blog/2015/09/10/full-stack-redux-tutorial.html)
+#####[isomorphic react]()
 
+#####[react with Immutable]()
+######[react with es6]()
+
+
+
+######[react lifecycle]()
+
+#####[react with TDD](http://teropa.info/blog/2015/09/10/full-stack-redux-tutorial.html)
+https://facebook.github.io/jest/docs/tutorial.html#content
 
 https://blog.risingstack.com/the-react-way-getting-started-tutorial/
 http://victorsavkin.com/post/99998937651/building-angular-apps-using-flux-architecture
