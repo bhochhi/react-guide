@@ -1,4 +1,4 @@
-var MyRadioGroup = require('./my-radio-group.jsx');
+var MyRadioGroup = require('./MyRadioGroup.jsx');
 var MyForm = React.createClass({
 
   getDefaultProps: function() {

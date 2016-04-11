@@ -47,8 +47,13 @@ Hence, the owner component should have getInitialState method to return the stat
   2. When a user interact with views, an action is propagated to __Dispatcher__ via __Action Creators__. The __Dispatcher__ then invokes all the callbacks that __Stores__ have registered with it for such action. This is the how __Stores__ gets the data payload contained in the actions. The __Stores__ then emit a "change" event. All the __Views__ listening for such change event retrieve the data from __Stores__ and call _render()_ method via _setState()_ or _forceUpdate()_ to update themselves and their children.
   3. As you can see, Flux applications have 4 major parts: Dispatcher, Store, Views and Action Creators.
   4. __Action Creator__ It creates an actions with type and payload. Actions are triggered by views usually by user interaction and propagated to Dispatcher.
-  5. Dispatcher is a singleton and just a big registry of callbacks. It keeps a list of all of the stores that it needs to send actions to. When an action comes in from the action creator, it will pass to all registered stores regardless of action type. That's why you can all it dump. However if you need to set up dependencies between stores so that one gets updated before other, you can have Dispatcher manage this using waitFor() method.
-  6. __Store__
+  5. Dispatcher is a singleton and just a big registry of callbacks into the stores. Each store registers itself and provides a callback. When an action comes in from the action creator, it will pass to all registered stores regardless of action type via callbacks. That's why you can call it dump, has no intelligence of its own. However if you need to set up dependencies between stores so that one gets updated before other, you can have Dispatcher manage this using waitFor() method.
+  6. __Store__ Holds on to all states and logic of the application. Store is responsible to register itself with the Dispatcher and provide it with a callback. This callback receives the action as a parameter. Within the store's registered callback, a switch statement based on the action's type is used to interpret the action and to provide the proper hooks into the store's internal methods. This is how action triggered result in an update to the state and props of the store, via Dispatcher. After stores are updated, they broadcast an event declaring that their state has changed, so the views may query the new state and update themselves.
+  7. __Views and Controller-Views__ Views and Controller-Views are just logical separation of view components. Views are presenter, they are not aware of anything in the application but just the data handed to them by Controller-Views. Controller-Views are like middle manager, fetch data when store signals new or updated data is available, then calls its own setState() and forceUpdate() methods to cause its own render() and render() method of all descedants to run.
+
+  Please checkout my example to find basic implementation.
+
+  
 
 
 
