@@ -1,5 +1,15 @@
+//operating as Controller-View
+
 var MyRadio = require('./MyRadio.jsx');
 var MyOtherRadio = require('./MyOtherRadio.jsx');
+
+
+  function getMoodState(){
+    return {
+      otherSelected:MoodStore.isOtherSelected();
+    };
+  }
+
 module.exports = React.createClass({
   getInitialState: function() {
     return {otherSelected: false};
