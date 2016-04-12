@@ -6,48 +6,43 @@ var MyOtherRadio = require('./MyOtherRadio.jsx');
 var MoodActions = require('../actions/MoodActions');
 var MoodStore = require('../stores/MoodStore');
 
-  function getMoodState(){
-    return {
-      otherSelected:MoodStore.isOtherSelected()
-    };
-  }
+function getMoodState() {
+  return {otherSelected: MoodStore.isOtherSelected()};
+}
 
-  /** @jsx */
 var MyRadioGroup = React.createClass({
   getInitialState: function() {
     return getMoodState();
   },
 
-  // onRadioSelected: function(otherChecked) {
-  //   if(this.state.otherSelected===otherChecked)
-  //   {
-  //     return;
-  //   }
-  //   this.setState({otherSelected:otherChecked});
-  // }
-  ,
-  componentDidMount:function(){
-      MoodStore.addChangeListener(this._onChange);
+  _onChange: function(otherChecked) {
+    if (this.state.otherSelected === otherChecked) {
+      return;
+    }
+    this.setState(getMoodState());
   },
-  componentWillMount:function(){
-      MoodStore.removeChangeListener(this._onChange);
+
+  componentDidMount: function() {
+    MoodStore.addChangeListener(this._onChange);
+  },
+  componentWillUnMount: function() {
+    MoodStore.removeChangeListener(this._onChange);
   },
 
   render: function() {
     var radios = this.props.options.map(function(radio) {
       return (
-        <MyRadio data={radio} key={radio.label}>
-        </MyRadio>
+        <MyRadio data={radio} key={radio.label} otherSelected={this.state.otherSelected}></MyRadio>
       )
     }.bind(this));
 
     return (
       <div className='my-radio-group'>
         {radios}
-        {!!this.props.other && (<MyOtherRadio  otherSelected={this.state.otherSelected} other={this.props.other}/>)
+        {!!this.props.other && (<MyOtherRadio otherSelected={this.state.otherSelected} other={this.props.other}/>)
 }
       </div>
     );
   }
 });
- module.exports = MyRadioGroup;
+module.exports = MyRadioGroup;

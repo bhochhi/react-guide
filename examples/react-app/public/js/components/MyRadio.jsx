@@ -1,10 +1,15 @@
+'use strict';
+
+var MoodActions = require('../actions/MoodActions');
+
 module.exports = React.createClass({
   propTypes:{
     value:React.PropTypes.string,
     name:React.PropTypes.string
   },
-  changeHandler :function(e){
-    this.props.onRadioSelected(!e.target.checked);
+  _onChangeHandler :function(e){
+      console.log('MoodActions',MoodActions);
+      MoodActions.radioSelected(!e.target.checked);
   },
   render: function() {
     var value = this.props.data.value;
@@ -13,7 +18,7 @@ module.exports = React.createClass({
     return (
       <div className="my-radio">
         <label>
-          <input type="radio" onChange={this.changeHandler} value={value} name={name} /> {label}
+          <input type="radio" onChange={this._onChangeHandler} value={value} name={name} /> {label}
         </label>
       </div>
     )
