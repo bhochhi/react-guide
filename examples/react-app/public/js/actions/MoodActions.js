@@ -11,7 +11,7 @@ var  MoodActions = {
       otherChecked:otherChecked
     });
   }
-}
+};
 
 
 module.exports = MoodActions;
