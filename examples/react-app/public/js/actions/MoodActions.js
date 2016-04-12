@@ -4,7 +4,7 @@ var MoodConstants = require('../constants/MoodConstants');
 
 var MoodActions = {
   radioSelected: function(otherChecked) {
-    AppDispatcher.dispatcher({actionType: MoodConstants.MOOD_SELECTED, otherChecked: otherChecked});
+    AppDispatcher.dispatch({actionType: MoodConstants.MOOD_SELECTED, otherChecked: otherChecked});
   }
 };
 

@@ -1,4 +1,6 @@
 'use strict';
+
+var MoodActions = require('../actions/MoodActions');
 module.exports = React.createClass({
 
   _onChangeHandler :function(e){

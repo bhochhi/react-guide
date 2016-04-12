@@ -8,7 +8,6 @@ module.exports = React.createClass({
     name:React.PropTypes.string
   },
   _onChangeHandler :function(e){
-      console.log('MoodActions',MoodActions);
       MoodActions.radioSelected(!e.target.checked);
   },
   render: function() {
