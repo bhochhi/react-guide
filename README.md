@@ -74,6 +74,7 @@ Following example projects are built progressively as we move further down.
   https://facebook.github.io/flux/docs/todo-list.html#content
 
 ######[react with redux](https://github.com/bhochhi/react-guide/tree/react-with-redux)
+ http://redux.js.org/docs
  
 
 
