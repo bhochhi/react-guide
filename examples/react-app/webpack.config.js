@@ -1,8 +1,8 @@
 module.exports = {
   context: __dirname + "/public",
   entry: {
-    core: "./core/core.js",
-    app: "./app.js"
+    core: "./js/core/core.js",
+    app: "./js/app.js"
   },
   output: {
     path: __dirname + "/dist",
