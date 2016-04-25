@@ -42,7 +42,7 @@ This should be one of the first to mention and start with while building react c
 Hence, the owner component should have getInitialState method to return the state object, the initial state of the application. Then pass this state object to child components  as a prop and use this prop to render the view.
 5. __Add inverse data flow__  Remember the meaning of one-directional data flow: data or state should be changed only by their owner component and the child components should be simply responsible to let the owner know about user interaction and actions so that owner could update the data respective components could re-render to update the view. Basically this is done by creating callback function in owner component that updates the state and data. Such function will be passed to child components who will trigger on user interaction and consequently causing all the components to re-render if the state has been passed those components as a props.
 
-##### [react with flux]()
+##### [react with flux](https://github.com/bhochhi/react-guide/tree/v-react-with-flux)
   1. Flux is architectural pattern that establish unidirectional data flow in the application.
   2. When a user interact with views, an action is created and send to __Dispatcher__ using __Action Creators__. The __Dispatcher__ then invokes all the callbacks that __Stores__ have registered with it. This is the how __Stores__ gets the data payload contained in the actions. The __Stores__ then emit a "change" event. All the __Views__ listening for such change event retrieve the data from __Stores__ and call _render()_ method via _setState()_ or _forceUpdate()_ to update themselves and their children.
   ![example](https://github.com/bhochhi/react-guide/blob/master/20160417_111716.jpg)
@@ -52,7 +52,7 @@ Hence, the owner component should have getInitialState method to return the stat
   6. __Store__ Holds on to all states and logic of the application. Store is responsible to register itself with the Dispatcher and provide it with a callback. This callback receives the action as a parameter. Within the store's registered callback, a switch statement based on the action's type is used to interpret the action and to provide the proper hooks into the store's internal methods. This is how action triggered result in an update to the state and props of the store, via Dispatcher. After stores are updated, they broadcast an event declaring that their state has changed, so the views may query the new state and update themselves.
   7. __Views and Controller-Views__ Views and Controller-Views are just logical separation of view components. Views are presenter, they are not aware of anything in the application but just the data handed to them by Controller-Views. Controller-Views are like middle manager, fetch data when store signals new or updated data is available, then calls its own setState() and forceUpdate() methods to cause its own render() and render() method of all descedants to run.
 
-  Please checkout my example to find basic implementation.
+  Please checkout my [example](https://github.com/bhochhi/react-guide/tree/v-react-with-flux) to find basic implementation.
 
 
 
