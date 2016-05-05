@@ -71,7 +71,7 @@ https://github.com/enaqx/awesome-react
 
 #####[react with routing]()
 
-######[react with redux]()
+######[react with redux]()http://www.jamasoftware.com/blog/lets-write-redux/
 
 #####[isomorphic react]()
 
