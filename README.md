@@ -71,8 +71,13 @@ https://github.com/enaqx/awesome-react
 
 #####[react with routing]()
 
-######[react with redux]()http://www.jamasoftware.com/blog/lets-write-redux/
-
+######[react with redux](http://www.jamasoftware.com/blog/lets-write-redux/)
+ - Know three principles of Redux
+    1. Single source of truth (the state for whole app is stored in object tree within a single store)
+    2. State is read-only (mutate the state is emit action, and next state is always new state not modified previous state)
+    3. Changes are made with pure functions(reducers)
+  - Store is collection of bunch of pure functions(reducers)
+  - 
 #####[isomorphic react]()
 
 #####[react with Immutable]()
