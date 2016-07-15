@@ -89,6 +89,109 @@ https://github.com/enaqx/awesome-react
 ######[react lifecycle]()
 
 #####[react with TDD](http://teropa.info/blog/2015/09/10/full-stack-redux-tutorial.html)
+
+**How to run the test?**
+
+```npm test``` to run all client and server side tests.
+
+```npm run test:client``` to run only client-side tests.
+
+```npm run test:server``` to run only server-side tests.
+
+
+**What is testing framework being used?**
+ 
+[**Mocha**](https://mochajs.org/) is the testing framework we use for both server and public side unit testing. 
+
+
+**What are assertion libraries being used?**
+
+We are using [Chai](http://chaijs.com/) for assertion with its **expect** flavor and [Chai-as-promised](https://github.com/domenic/chai-as-promised) as plugin when needed for asserting asynchronous test. We recommend to be consistent on such selection.
+We also use [Enzyme](http://airbnb.io/enzyme/index.html) for react component test. Details are below how it is being used for testing react components.
+
+**What are mocking libraries being used?**
+
+[Sinon](http://sinonjs.org/) for mocking 
+
+
+
+**What and How should react components be tested?**
+
+Since react component is basically view, we would like to focus test mainly on user interaction, like for certain event:
+ - What should be the response of component?
+ - Did all render/re-render take place as expected?
+ - Did all handlers fired as expected?
+ - Did is the state and props of the component changed as expected after triggering events?
+ - Also you can test whether the component has expected child components or DOM elements or properties.
+ 
+Using [enzyme](http://airbnb.io/enzyme/index.html) for such tests has been made very easy without getting component into browser window. You can simulate the events, render/rerender the components in isolation or in full DOM configuration. We recommend you to reference its APIs for your various requirements.  Here is the [test example](https://github.com/Telogical/DandyLion/blob/issue308-integrate-react-tests/test/unit/public/features/LocationEntry/components/Zipcode/Zipcode.react.js) of one of our react component **ZipCode**. The report of its tests reads as follows: You can see the test first verify important elements/components exists. Then, it interacts with the component by simulating events with various datasets(valid zipcode, out of scope zipcode, invalid zipcode) and verifies the result of rerendering/execution are as expected.
+
+```
+  Given a Zipcode component
+    And I have theme, style, interactionHandlers for onValidZipCode and onZipCodeClear event
+      And I have empty as intial location for zipcode
+        When the component is rendered
+          √ Should have TextField component
+          √ Should have "Enter ZIP code" as a label of TextField
+          √ Should have empty as initial value of TextField
+          √ Should have LocationDisplay component
+          √ Should have value and them props with LocationDisplay
+          When I enter a valid and in scope zipcode
+            √ Should have ZipCode as value of TextField
+            √ Should have city and state displayed on error text
+            √ Should have triggered onValidZipCode interaction handler
+            √ Should have displayed "Market: <shortDma value>" in LocationDisplay
+          When I enter a valid but out of scope zipcode
+            √ Should have ZipCode as value of TextField
+            √ Should have displayed  "ZipCode out of scope" on errortext
+            √ Should have triggered onValidZipCode interaction handler
+            √ Should have displayed empty in LocationDisplay
+          When I enter a invalid zipcode
+            √ Should have ZipCode as value of TextField
+            √ Should have displayed  "Valid ZIP code required" on errortext
+            √ Should not have triggered onValidZipCodeCalled interaction handler
+            √ Should have displayed empty in LocationDisplay
+
+  17 passing (263ms)
+
+```
+
+**[What and How should a Store be tested?](https://facebook.github.io/flux/docs/testing-flux-applications.html#testing-stores)**
+
+Store in our application are based on Flux architecture. It has a specific convention how to structure the code to fulfill its responsibility i.e., managing business logic and data.
+  * A store should expose basically 3 types APIs:
+    - To fetch the data that store manages.(get)
+    - To add listener so that store can notify subscriber listening for various events.(addChangeListener to listen for data change event).
+    - To remove listener so that store do not notify subscribers who were listening before.
+  * A store should have callback method(_actionHandler) which would be used to register with application dispatcher. 
+ 
+External sources that depends on store communicate ultimately via such callback method(actionHandler) using various action object. This shows that callback method(actionHandler) should be our primary focus of our test as it controls the logic flow of the store based on _action_ it receives as an argument. We recommend following type of tests by mocking any type of external dependencies if necessary:
+```
+ Given a Store,
+  ...(mockings)
+  When I dispatch certain action,
+   It should have data
+   It should have model with props
+   It should have dispatch some other action/s
+```
+Please refer to example [test](https://github.com/Telogical/DandyLion/blob/issue308-integrate-react-tests/test/unit/public/features/LocationEntry/LocationEntryStore.js) for one the store in the project. The report of this test looks as follows:
+
+```
+ Given a LocationEntryStore
+    And I have a data from LocationEntryDataService
+      When I dispatch an action of type REQUEST_LOCATION_ENTRY_DATA with clientId
+        ✓ should dispatch the action of type REQUEST_LOCATION_ENTRY_DATA_SUCCESS with actualModel
+        ✓ should set the locationEntry Model with client and theme properties
+        ✓ should have clientId, name and applications properties within client
+    And I have an error from LocationEntryDataService
+      When I dispatch an action of type REQUEST_LOCATION_ENTRY_DATA with clientId
+        ✓ should dispatch the action of type REQUEST_LOCATION_ENTRY_DATA_FAILURE with actualModel
+        ✓ should return the locationEntry Model with client properties
+        ✓ should return the error within client
+``` 
+   
+
+
 https://facebook.github.io/jest/docs/tutorial.html#content
 
 https://blog.risingstack.com/the-react-way-getting-started-tutorial/
