@@ -77,7 +77,8 @@ https://github.com/enaqx/awesome-react
     2. State is read-only (mutate the state is emit action, and next state is always new state not modified previous state)
     3. Changes are made with pure functions(reducers)
   - Store is collection of bunch of pure functions(reducers)
-  - 
+  -  http://redux.js.org/docs/introduction/Ecosystem.html
+  -  
 #####[isomorphic react]()
 
 #####[react with Immutable]()
