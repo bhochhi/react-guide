@@ -1,0 +1,9 @@
+.DS_STORE
+node_modules
+static
+.module-cache
+*.log*
+
+node_modules
+../react-mui/node_modules
+node_modules

@@ -1,0 +1,5 @@
+example/**/node_modules
+example/react-ui/node_modules
+examples/react-ui/node_modules
+examples/react-mui/node_modules/
+examples/react-mui/node_modules/**
