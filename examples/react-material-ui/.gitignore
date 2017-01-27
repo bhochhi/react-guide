@@ -3,7 +3,6 @@ node_modules
 static
 .module-cache
 *.log*
+node_modules
 
-node_modules
-../react-mui/node_modules
-node_modules
+build/
