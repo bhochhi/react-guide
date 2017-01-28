@@ -7,7 +7,7 @@ const rawBaseTheme = {
   fontFamily: 'Roboto, sans-serif',
   palette: {
     primary1Color: Colors.red900,
-    primary2Color: Colors.blue700,
+    primary2Color: Colors.red700,
     primary3Color: Colors.lightBlack,
     accent1Color: Colors.pinkA200,
     accent2Color: Colors.grey100,
