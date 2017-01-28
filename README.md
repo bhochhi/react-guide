@@ -11,6 +11,7 @@ Trying to answer following questions through some codebase examples
 * How react handles routing?
 * How to TDD with react?
 
+[React-howto](https://github.com/petehunt/react-howto)
 
 
 Following example projects are built progressively as we move further down.
