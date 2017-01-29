@@ -79,6 +79,7 @@ https://github.com/enaqx/awesome-react
     3. Changes are made with pure functions(reducers)
   - Store is collection of bunch of pure functions(reducers)
   -  http://redux.js.org/docs/introduction/Ecosystem.html
+#####[Awesome Redux](https://github.com/xgrommx/awesome-redux)
   -  
 #####[isomorphic react]()
 
