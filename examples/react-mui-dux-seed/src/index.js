@@ -16,7 +16,7 @@ const theme = getMuiTheme(defaultTheme);
 injectTapEventPlugin();
 
 const store = configureStore();
-
+console.log('stroe',store);
 render(
   <MuiThemeProvider muiTheme={theme}>
     <Provider store={store}>

@@ -1,6 +1,6 @@
 import {
   cyan500, cyan700,
-  pinkA200,
+  pinkA200,red900,
   grey100, grey300, grey400, grey500,
   white, darkBlack, fullBlack,
 } from 'material-ui/styles/colors';
@@ -16,7 +16,7 @@ export default {
   spacing: spacing,
   fontFamily: 'Roboto, sans-serif',
   palette: {
-    primary1Color: cyan500,
+    primary1Color: red900,
     primary2Color: cyan700,
     primary3Color: grey400,
     accent1Color: pinkA200,
@@ -27,8 +27,8 @@ export default {
     canvasColor: white,
     borderColor: grey300,
     disabledColor: fade(darkBlack, 0.3),
-    pickerHeaderColor: cyan500,
+    pickerHeaderColor: red900,
     clockCircleColor: fade(darkBlack, 0.07),
     shadowColor: fullBlack
-  },
+  }
 };
