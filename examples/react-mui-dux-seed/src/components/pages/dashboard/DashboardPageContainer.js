@@ -17,7 +17,7 @@ class Dashboard extends React.Component {
     return (
       <LayoutContainer headerText='Dashboard'>
         <div className="wrap page-content">
-         {'this is the content'}
+         {'this is the dashboard content'}
         </div>
       </LayoutContainer>
     )
