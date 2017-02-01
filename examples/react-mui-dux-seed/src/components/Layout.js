@@ -6,6 +6,8 @@ import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 import Popover from 'material-ui/Popover';
 
+import FontIcon from 'material-ui/FontIcon';
+
 import IconMenu from 'material-ui/IconMenu';
 import { Link } from 'react-router';
 import IconButton from 'material-ui/IconButton';
@@ -49,11 +51,11 @@ const menu =[
   },
    {
     label : "page 2",
-    link:'#/page2'
+    link:'#/page1'
    },
    {
     label : "page 3",
-    link:'#/page3'
+    link:'#/page1'
   }
 ];
 
@@ -74,6 +76,11 @@ state = {
   handleChangeSingle = (event, value) => {
     this.setState({
       valueSingle: value,
+    });
+  };
+handleMenuSelect = (event, value) => {
+    this.setState({
+      valueSelected: value,
     });
   };
 
@@ -99,8 +106,9 @@ state = {
   };
   render() {
 
-    var menus = menu.map(function(item,i ){ return (<FlatButton  key={i} label={item.label} style={styles.menu} />)}.bind(this));
-    
+    var menus = menu.map(function(item,i ){ return (<FlatButton  key={i} label={item.label} style={styles.menu} 
+    href={item.link} />)}.bind(this));
+   
     return (      
       <div id="main">
               {devtools}
@@ -117,16 +125,17 @@ state = {
           anchorEl={this.state.anchorEl}    
           onRequestClose={this.handleRequestClose}     
         >
-          <Menu>
-            <MenuItem primaryText="Refresh" />
-            <MenuItem primaryText="Help &amp; feedback" />
-            <MenuItem primaryText="Settings" />
-            <MenuItem primaryText="Sign out" />
+          <Menu value={this.state.menuSelected} onChange={this.handleMenuSelect}>
+            <MenuItem value="1" primaryText="Refresh" />
+            <MenuItem value="2" primaryText="Help &amp; feedback" />
+            <MenuItem value="3" primaryText="Settings" />
+            <MenuItem value="4" primaryText="Sign out" />
           </Menu>
         </Popover>        
           </div>
+                
          <IconMenu 
-          iconButtonElement={<IconButton style={styles.menu}> <MoreVertIcon /></IconButton>}
+          iconButtonElement={<IconButton style={styles.menu}><i className="material-icons">account_circle</i></IconButton>}
           onChange={this.handleChangeSingle}
           anchorOrigin = {{ vertical: 'bottom', horizontal: 'left',}} 
           value={this.state.valueSingle}

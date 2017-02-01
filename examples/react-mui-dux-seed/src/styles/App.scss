@@ -1,6 +1,7 @@
 /* Base Application Styles */
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+@import url(https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 @import "~susy/sass/susy";
 
 $susy: (
@@ -86,4 +87,8 @@ h3{
     // starting at a 30em min-width breakpoint...
     padding: 20px 40px;
   }
+}
+
+.muidocs-icon-custom-github {
+    content: "\e625";
 }
