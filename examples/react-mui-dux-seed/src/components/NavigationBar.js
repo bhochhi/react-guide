@@ -24,7 +24,7 @@ import FlatButton from 'material-ui/FlatButton';
 
 const devtools = (() => {
   if (config.appEnv === 'dev') {
-    const DevTools = require('components/DevTools').default;    
+    const DevTools = require('./DevTools').default;    
     return <DevTools />;
   } else {
     return null;
@@ -46,20 +46,20 @@ const styles = {
 
 const menu =[
   {
-    label : "page 1",
+    label : "page ",
     link:'#/page'
   },
    {
-    label : "page 2",
+    label : "page 1",
     link:'#/page1'
    },
    {
-    label : "page 3",
-    link:'#/page1'
+    label : "page 2",
+    link:'#/page2'
   }
 ];
 
-class Layout extends React.Component {
+class NavigationBar extends React.Component {
   constructor(props) {
     super(props);  
   }
@@ -112,7 +112,7 @@ handleMenuSelect = (event, value) => {
     return (      
       <div id="main">
               {devtools}
-         <AppBar showMenuIconButton={false} title={<span>Oculus</span>}>
+         <AppBar showMenuIconButton={false} title={<Link to="/">Oculus </Link>}>
           <div style={{paddingRight:'60px'}}>
            {menus} 
             <FlatButton
@@ -153,8 +153,8 @@ handleMenuSelect = (event, value) => {
   }
 }
 
-Layout.contextTypes = {
+NavigationBar.contextTypes = {
   router: React.PropTypes.object.isRequired
 };
 
-export default Layout;
+export default NavigationBar;

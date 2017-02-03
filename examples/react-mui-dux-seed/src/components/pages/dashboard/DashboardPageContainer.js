@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardActions, CardHeader, CardText, CardTitle } from 'material-ui/Card';
-import LayoutContainer from 'components/LayoutContainer';
+import LayoutContainer from 'components/pages/dashboard/LayoutContainer';
 import reactMixin from 'react-mixin';
 
 /**
