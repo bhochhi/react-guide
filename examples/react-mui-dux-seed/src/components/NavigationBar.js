@@ -22,6 +22,7 @@ import ContentFilter from 'material-ui/svg-icons/content/filter-list';
 import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-more';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import FlatButton from 'material-ui/FlatButton';
+import _ from 'lodash'
 
 const devtools = (() => {
   if (config.appEnv === 'dev') {
@@ -53,24 +54,42 @@ const styles = {
 const menu =[
   {
     label : "page ",
-    link:'#/page'
+    link:'page'
   },
    {
     label : "page 1",
-    link:'#/page1'
+    link:'page1'
    },
    {
     label : "page 2",
-    link:'#/page2'
+    link:'page2'
   }
 ];
 
 class NavigationBar extends React.Component {
   constructor(props) {
-    super(props);  
+    super(props); 
+    this.state = {
+    open:false,
+    value:this.props.location.pathname,
+    tabIndex:this.findActiveTab()
+    } 
   }
-  state = {
-    open:false
+  
+  findActiveTab = () => {
+    console.log('pathname',this.props.location.pathname);
+     switch(this.props.location.pathname){
+       case '/':
+        return -1;
+       case '/page':
+        return 0;
+       case '/page1':
+        return 1;
+          case '/page2':
+        return 2;
+       default:
+        return 3;
+     }
   }
   handleRequestClose = () => {
       this.setState({
@@ -84,30 +103,26 @@ class NavigationBar extends React.Component {
       anchorEl: event.currentTarget,
     });
   };
-  handleActive = (tab) =>{
-  //  this.context.router.transitionTo(tab.props.route);
-  alert(`A tab with this route property ${tab.props['data-route']} was activated.`);
+
+
+changeValue = (tabIdx) => {
+  this.setState({tabIndex:tabIdx});
+}
+  
+  toDashBoard = () =>{
+    this.setState({tabIndex:-1});    
   }
 
-  handleChange = (value) =>{
-   console.log('route',value);
-   this.context.router.transitionTo(value);
-   this.setState({
-      value: value,
-    });
-  }
-  selectInitialTab = (e)=>{
-    console.log(e);
-    return -1;
-  }
   render() {
+    const { router } = this.context;
+ 
       var tabsMenu = (
         <div>
-      <Tabs style={{paddingRight:'60px'}}  value={this.state.value} initialSelectedIndex={this.selectInitialTab()}
-        onChange={this.handleChange}>
-      {menu.map(function(item,i ){ return (<Tab value={item.link}  key={i} label={item.label}  style={styles.menu}    
+      <Tabs style={{paddingRight:'60px'}} value={this.state.tabIndex} onChange={this.changeValue}  initialSelectedIndex={this.state.tabIndex}
+        >
+      {menu.map(function(item,i ){ return (<Tab value={i}  key={i} label={item.label}  style={styles.menu}    onActive = {() =>  this.context.router.push(item.link)} 
       />)}.bind(this))}
-      <Tab value='dropMenu' label={'dropMenu'} style={styles.menu} onClick={this.handleTouchTap}/>
+      <Tab value={3} label={'dropMenu'} style={styles.menu} onClick={this.handleTouchTap}/>
       </Tabs>
       <Popover zDepth={5}
           open={this.state.open}
@@ -141,9 +156,9 @@ class NavigationBar extends React.Component {
     )
    
     return (      
-      <div id="main">
+      <div id="navBar">         
               {devtools}
-              <AppBar showMenuIconButton={false} title={<Link className="title" to="/" >Oculus </Link>}>
+              <AppBar showMenuIconButton={false} title={<Link className="title" to="/" onClick={this.toDashBoard} > Oculus </Link>}>
                  {tabsMenu}
                 {profileMenu}
          </AppBar>

@@ -8,7 +8,7 @@ class Page1 extends React.Component {
 
   render() {
     return (
-      <div className="wrap page-content">{'This is a page 1'}</div>
+      <div className="wrap page-content">{'This is a page 1 content'}</div>
     )
   }
 }

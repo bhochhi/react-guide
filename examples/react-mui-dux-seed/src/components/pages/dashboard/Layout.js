@@ -8,15 +8,11 @@ class Layout extends React.Component {
 
   render() {
     return (      
-      <div id="main-dashboard">    
+      <div id="main-dashboard">     
         {this.props.children}
      </div>
     )
   }
 }
-
-Layout.contextTypes = {
-  router: React.PropTypes.object.isRequired
-};
 
 export default Layout;
