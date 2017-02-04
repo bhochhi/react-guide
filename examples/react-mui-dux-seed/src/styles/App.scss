@@ -12,8 +12,8 @@ $susy: (
 $mdwidth: 960px;
 
 a {
-  color: #00bcd4;
-  text-decoration: none;
+   text-decoration: none;
+   color: none;
 }
 
 a:hover {
@@ -95,4 +95,15 @@ h3{
 
 .page{
   color: red;
+}
+.title{
+  color: inherit;
+  text-decoration-style: none;
+}
+a.selected{
+  background: #ccc;
+}
+
+Tab>a{
+  height: '48px';
 }

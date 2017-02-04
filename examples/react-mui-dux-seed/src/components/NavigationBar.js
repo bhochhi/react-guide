@@ -7,6 +7,7 @@ import MenuItem from 'material-ui/MenuItem';
 import Popover from 'material-ui/Popover';
 
 import FontIcon from 'material-ui/FontIcon';
+import {Tabs,Tab} from 'material-ui';
 
 import IconMenu from 'material-ui/IconMenu';
 import { Link } from 'react-router';
@@ -37,9 +38,14 @@ const styles = {
     cursor: 'pointer',
   },
   menu:{
-    height:'64px', 
-    lineHeight:'64px',
-    color:'#CFF' 
+    color:'#CFF',
+    padding:'0 20px', 
+    height:'64px'
+  },
+  iconMenu:{
+    color:'#CFF',
+    padding:'0 20px', 
+    height:'64px'
   }
 };
 
@@ -63,89 +69,83 @@ class NavigationBar extends React.Component {
   constructor(props) {
     super(props);  
   }
-
-  handleClick(ev) {
-  alert('onTouchTap triggered on the title component');
-}
-
-state = {
-    valueSingle: '3',
-    valueMultiple: ['3', '5'],
-  };
-
-  handleChangeSingle = (event, value) => {
-    this.setState({
-      valueSingle: value,
-    });
-  };
-handleMenuSelect = (event, value) => {
-    this.setState({
-      valueSelected: value,
-    });
-  };
-
-  handleChangeMultiple = (event, value) => {
-    this.setState({
-      valueMultiple: value,
-    });
-  };
-
-  handleChange = (event, index, value) => this.setState({value});
+  state = {
+    open:false
+  }
   handleRequestClose = () => {
       this.setState({
         open: false,
       });
     };
    handleTouchTap = (event) => {
-    // This prevents ghost click.
     event.preventDefault();
     this.setState({
       open: true,
       anchorEl: event.currentTarget,
     });
   };
-  render() {
+  handleActive = (tab) =>{
+  //  this.context.router.transitionTo(tab.props.route);
+  alert(`A tab with this route property ${tab.props['data-route']} was activated.`);
+  }
 
-    var menus = menu.map(function(item,i ){ return (<FlatButton  key={i} label={item.label} style={styles.menu} 
-    href={item.link} />)}.bind(this));
-   
-    return (      
-      <div id="main">
-              {devtools}
-         <AppBar showMenuIconButton={false} title={<Link to="/">Oculus </Link>}>
-          <div style={{paddingRight:'60px'}}>
-           {menus} 
-            <FlatButton
-          onTouchTap={this.handleTouchTap}
-           style={styles.menu}
-          label="dropMenu"
-        />  
-            <Popover
+  handleChange = (value) =>{
+   console.log('route',value);
+   this.context.router.transitionTo(value);
+   this.setState({
+      value: value,
+    });
+  }
+  selectInitialTab = (e)=>{
+    console.log(e);
+    return -1;
+  }
+  render() {
+      var tabsMenu = (
+        <div>
+      <Tabs style={{paddingRight:'60px'}}  value={this.state.value} initialSelectedIndex={this.selectInitialTab()}
+        onChange={this.handleChange}>
+      {menu.map(function(item,i ){ return (<Tab value={item.link}  key={i} label={item.label}  style={styles.menu}    
+      />)}.bind(this))}
+      <Tab value='dropMenu' label={'dropMenu'} style={styles.menu} onClick={this.handleTouchTap}/>
+      </Tabs>
+      <Popover zDepth={5}
           open={this.state.open}
-          anchorEl={this.state.anchorEl}    
-          onRequestClose={this.handleRequestClose}     
+          anchorEl={this.state.anchorEl}
+          anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
+          targetOrigin={{horizontal: 'left', vertical: 'top'}}
+          onRequestClose={this.handleRequestClose}
         >
-          <Menu value={this.state.menuSelected} onChange={this.handleMenuSelect}>
-            <MenuItem value="1" primaryText="Refresh" />
-            <MenuItem value="2" primaryText="Help &amp; feedback" />
-            <MenuItem value="3" primaryText="Settings" />
-            <MenuItem value="4" primaryText="Sign out" />
+          <Menu>
+            <MenuItem value="1"><Link to="page" onClick={this.handleRequestClose}>page 1</Link></MenuItem>
+            <MenuItem value="2"><Link to="page1" onClick={this.handleRequestClose}>page 2</Link></MenuItem>
+            <MenuItem value="3"><Link to="page2" onClick={this.handleRequestClose}>page 3</Link></MenuItem>
+            <MenuItem value="4"><Link to="page" onClick={this.handleRequestClose}>page 4</Link></MenuItem>
           </Menu>
-        </Popover>        
-          </div>
-                
-         <IconMenu 
-          iconButtonElement={<IconButton style={styles.menu}><i className="material-icons">account_circle</i></IconButton>}
+      </Popover>
+      </div>
+    );
+
+    var profileMenu = (
+      <IconMenu 
+          iconButtonElement={<IconButton style={styles.iconMenu}><i className="material-icons">account_circle</i></IconButton>}
           onChange={this.handleChangeSingle}
           anchorOrigin = {{ vertical: 'bottom', horizontal: 'left',}} 
           value={this.state.valueSingle}
         >
-          <MenuItem value="1" primaryText="Refresh" />
-          <MenuItem value="2" primaryText="Send feedback" />
-          <MenuItem value="3" primaryText="Settings" />
+          <MenuItem value="1" primaryText="Profile" />
+          <MenuItem value="2" primaryText="Settings" />
           <MenuItem value="4" primaryText="Help" />
           <MenuItem value="5" primaryText="Sign out" />
         </IconMenu>
+    )
+   
+    return (      
+      <div id="main">
+              {devtools}
+              <AppBar showMenuIconButton={false} title={<Link className="title" to="/" >Oculus </Link>}>
+                 {tabsMenu}
+                {profileMenu}
          </AppBar>
         {this.props.children}
      </div>
