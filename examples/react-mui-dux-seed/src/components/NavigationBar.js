@@ -158,7 +158,7 @@ changeValue = (tabIdx) => {
     return (      
       <div id="navBar">         
               {devtools}
-              <AppBar showMenuIconButton={false} title={<Link className="title" to="/" onClick={this.toDashBoard} > Oculus </Link>}>
+              <AppBar showMenuIconButton={false} title={<Link className="title" to="/" onClick={this.toDashBoard} > AppTitle </Link>}>
                  {tabsMenu}
                 {profileMenu}
          </AppBar>
