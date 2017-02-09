@@ -32,3 +32,4 @@ node_modules
 # Bower
 bower_components/
 src/favicon.ico
+dist/
