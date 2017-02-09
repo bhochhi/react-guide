@@ -1,6 +1,6 @@
 import {
   cyan500, cyan700,
-  pinkA200,red900,
+  pinkA200,red900,blue900,blueA700,red700,blueA400,
   grey100, grey300, grey400, grey500,
   white, darkBlack, fullBlack,
 } from 'material-ui/styles/colors';
@@ -17,9 +17,9 @@ export default {
   fontFamily: 'Roboto, sans-serif',
   palette: {
     primary1Color: red900,
-    primary2Color: cyan700,
+    primary2Color: blueA400,
     primary3Color: grey400,
-    accent1Color: pinkA200,
+    accent1Color: blueA700,
     accent2Color: grey100,
     accent3Color: grey500,
     textColor: darkBlack,

@@ -39,7 +39,7 @@ const styles = {
     cursor: 'pointer',
   },
   menu:{
-    color:'#CFF',
+  
     padding:'0 20px', 
     height:'64px'
   },
