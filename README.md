@@ -1,15 +1,17 @@
-###Demo
-Trying to answer following questions through some codebase examples
-* How to use Raw React?
-* Why use React?
-* What's virtual DOM?
-* How React is different from Angularjs in term of how they updates the view?
-* ES5 or ES6 for React?
-* What's flux and how to incorporate with React?
-* Redux? Reflux? what's going on?
-* Best Practices?
-* How react handles routing?
-* How to TDD with react?
+
+
+### props vs state
+1. props and state are two ways a component can get data.  
+2. Both are plan javascript objects. 
+3. Both can trigger render update. 
+4. **props** should be thought of as config properties for component that should not be changed. 
+5. However any attributes that can change within component should be handled as **states**. 
+6. Component can't change its props. but responsible to putting together the props for childrn
+7. Component manages its own state. 
+8. **states** start with a default value when a Component mounts. 
+9. States are optional. 
+10. Component with states are Stateful component and one without states are called stateless component.
+
 
 [React-howto](https://github.com/petehunt/react-howto)
 
