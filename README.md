@@ -1,6 +1,6 @@
 
 
-### props vs state
+### [props vs state](https://github.com/uberVU/react-guide/blob/master/props-vs-state.md)
 1. props and state are two ways a component can get data.  
 2. Both are plan javascript objects. 
 3. Both can trigger render update. 
