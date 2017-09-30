@@ -11,9 +11,12 @@
 8. **states** start with a default value when a Component mounts. 
 9. States are optional. 
 10. Component with states are Stateful component and one without states are called stateless component.
+11. There should be a single "source of truth" for any data that changes in a React application. Usually, the state is first added to the component that needs it for rendering. Then, if other components also need it, you can lift it up to their closest common ancestor. Instead of trying to sync the state between different components, you should rely on the top-down data flow.
+12. 
 
 
 [React-howto](https://github.com/petehunt/react-howto)
+
 
 
 Following example projects are built progressively as we move further down.
