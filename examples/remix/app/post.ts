@@ -4,6 +4,7 @@ import fs from "fs/promises";
 import parseFrontMatter from "front-matter";
 import invariant from "tiny-invariant";
 import { marked } from "marked";
+import {json } from "remix";
 
 
 const postsPath = path.join(__dirname, "..", "posts");
@@ -11,6 +12,12 @@ const postsPath = path.join(__dirname, "..", "posts");
 export type Post = {
     slug: string;
     title: string;
+  };
+
+  type NewPost = {
+    title: string;
+    slug: string;
+    markdown: string;
   };
 
 
@@ -59,4 +66,14 @@ export type Post = {
         };
       })
     );
+  }
+
+  export async function createPost(post: NewPost) {
+
+    const md = `---\ntitle: ${post.title}\n---\n\n${post.markdown}`;
+    await fs.writeFile(
+      path.join(postsPath, post.slug + ".md"),
+      md
+    );
+    return json(await getPost(post.slug));
   }
