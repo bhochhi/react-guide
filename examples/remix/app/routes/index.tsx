@@ -4,7 +4,7 @@ export default function Index() {
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
       <h1 className="text-3xl font-bold underline">Welcome to Remix with tailwind css</h1>
-      <ul>
+      <ul role="list" className="marker:text-sky-400 list-disc pl-5 space-y-3 text-slate-400">
         <li>
           <a
             target="_blank"
